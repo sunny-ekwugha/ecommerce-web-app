@@ -66,3 +66,4 @@ local-deployment/emails/
 backend.hcl
 tfplan
 crash.log
+*.tfplan

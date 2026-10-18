@@ -18,3 +18,8 @@ variable "single_nat_gateway" {
   type        = bool
   default     = false
 }
+
+variable "cognito_deletion_protection" {
+  type    = string
+  default = "ACTIVE"
+}
