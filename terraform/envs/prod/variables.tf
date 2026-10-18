@@ -27,3 +27,8 @@ variable "frontend_force_destroy" {
   type    = bool
   default = false
 }
+
+variable "ecr_force_delete" {
+  type    = bool
+  default = false
+}

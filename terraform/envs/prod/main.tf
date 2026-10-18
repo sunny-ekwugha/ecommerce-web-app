@@ -22,3 +22,9 @@ module "frontend" {
   images_dir    = "${path.root}/../../../data/product-images"
   force_destroy = var.frontend_force_destroy
 }
+
+module "ecr" {
+  source       = "../../modules/ecr"
+  name         = local.name
+  force_delete = var.ecr_force_delete
+}
