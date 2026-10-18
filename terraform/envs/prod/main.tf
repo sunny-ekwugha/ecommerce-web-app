@@ -13,26 +13,26 @@ module "network" {
 module "cognito" {
   source              = "../../modules/cognito"
   name                = local.name
-  deletion_protection = var.cognito_deletion_protection
+  deletion_protection = var.allow_destroy ? "INACTIVE" : "ACTIVE"
 }
 
 module "frontend" {
   source        = "../../modules/frontend"
   name          = local.name
   images_dir    = "${path.root}/../../../data/product-images"
-  force_destroy = var.frontend_force_destroy
+  force_destroy = var.allow_destroy
 }
 
 module "ecr" {
   source       = "../../modules/ecr"
   name         = local.name
-  force_delete = var.ecr_force_delete
+  force_delete = var.allow_destroy
 }
 
 module "data" {
   source              = "../../modules/data"
   name                = local.name
-  deletion_protection = var.data_deletion_protection
+  deletion_protection = !var.allow_destroy
 }
 
 output "products_table" { value = module.data.products_table_name }

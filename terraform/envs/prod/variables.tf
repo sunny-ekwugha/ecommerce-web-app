@@ -19,28 +19,8 @@ variable "single_nat_gateway" {
   default     = false
 }
 
-variable "cognito_deletion_protection" {
-  type    = string
-  default = "ACTIVE"
+variable "allow_destroy" {
+  type        = bool
+  default     = false
+  description = "Practice mode: turns off deletion protection and lets destroy empty buckets and registries."
 }
-variable "frontend_force_destroy" {
-  type    = bool
-  default = false
-}
-
-# ECR
-variable "ecr_force_delete" {
-  type    = bool
-  default = false
-}
-
-variable "data_deletion_protection" {
-  type    = bool
-  default = true
-}
-
-  variable "allow_destroy" {
-    type        = bool
-    default     = false
-    description = "Practice mode: turns off deletion protection and lets destroy empty buckets and registries."
-  }
