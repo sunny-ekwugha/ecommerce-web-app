@@ -57,3 +57,12 @@ generated-diagrams/
 
 # Local deployment email files
 local-deployment/emails/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+backend.hcl
+tfplan
+crash.log
