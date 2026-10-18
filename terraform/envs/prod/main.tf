@@ -28,3 +28,13 @@ module "ecr" {
   name         = local.name
   force_delete = var.ecr_force_delete
 }
+
+module "data" {
+  source              = "../../modules/data"
+  name                = local.name
+  deletion_protection = var.data_deletion_protection
+}
+
+output "products_table" { value = module.data.products_table_name }
+output "cart_table" { value = module.data.cart_table_name }
+output "kms_key_arn" { value = module.data.kms_key_arn }

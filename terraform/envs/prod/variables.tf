@@ -28,7 +28,19 @@ variable "frontend_force_destroy" {
   default = false
 }
 
+# ECR
 variable "ecr_force_delete" {
   type    = bool
   default = false
 }
+
+variable "data_deletion_protection" {
+  type    = bool
+  default = true
+}
+
+  variable "allow_destroy" {
+    type        = bool
+    default     = false
+    description = "Practice mode: turns off deletion protection and lets destroy empty buckets and registries."
+  }
