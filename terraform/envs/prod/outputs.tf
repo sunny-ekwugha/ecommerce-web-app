@@ -17,3 +17,7 @@ output "db_subnet_ids" {
 output "cognito_user_pool_id" { value = module.cognito.user_pool_id }
 output "cognito_client_id" { value = module.cognito.client_id }
 output "cognito_issuer" { value = module.cognito.issuer }
+
+output "frontend_bucket" { value = module.frontend.bucket_name }
+output "cloudfront_id" { value = module.frontend.distribution_id }
+output "cloudfront_domain" { value = module.frontend.distribution_domain }

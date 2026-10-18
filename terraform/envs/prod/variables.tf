@@ -23,3 +23,7 @@ variable "cognito_deletion_protection" {
   type    = string
   default = "ACTIVE"
 }
+variable "frontend_force_destroy" {
+  type    = bool
+  default = false
+}

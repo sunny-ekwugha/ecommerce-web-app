@@ -15,3 +15,10 @@ module "cognito" {
   name                = local.name
   deletion_protection = var.cognito_deletion_protection
 }
+
+module "frontend" {
+  source        = "../../modules/frontend"
+  name          = local.name
+  images_dir    = "${path.root}/../../../data/product-images"
+  force_destroy = var.frontend_force_destroy
+}
