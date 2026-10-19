@@ -38,3 +38,10 @@ module "data" {
 output "products_table" { value = module.data.products_table_name }
 output "cart_table" { value = module.data.cart_table_name }
 output "kms_key_arn" { value = module.data.kms_key_arn }
+
+module "catalog" {
+  source         = "../../modules/catalog"
+  table_name     = module.data.products_table_name
+  products_file  = "${path.root}/../../../data/products.json"
+  image_base_url = "https://${module.frontend.distribution_domain}"
+}
