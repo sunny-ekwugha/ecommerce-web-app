@@ -23,3 +23,8 @@ output "cloudfront_id" { value = module.frontend.distribution_id }
 output "cloudfront_domain" { value = module.frontend.distribution_domain }
 
 output "ecr_repository_urls" { value = module.ecr.repository_urls }
+
+output "sns_topic_arn" {
+  description = "ARN of the order events SNS topic"
+  value       = module.messaging.topic_arn
+}

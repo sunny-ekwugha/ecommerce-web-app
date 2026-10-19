@@ -45,3 +45,9 @@ module "catalog" {
   products_file  = "${path.root}/../../../data/products.json"
   image_base_url = "https://${module.frontend.distribution_domain}"
 }
+
+module "messaging" {
+  source      = "../../modules/messaging"
+  name        = local.name
+  kms_key_arn = module.data.kms_key_arn
+}
