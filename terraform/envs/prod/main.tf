@@ -51,3 +51,14 @@ module "messaging" {
   name        = local.name
   kms_key_arn = module.data.kms_key_arn
 }
+
+module "iam" {
+  source             = "../../modules/iam"
+  name               = local.name
+  env                = var.env
+  kms_key_arn        = module.data.kms_key_arn
+  products_table_arn = module.data.products_table_arn
+  cart_table_arn     = module.data.cart_table_arn
+  sns_topic_arn      = module.messaging.topic_arn
+}
+
