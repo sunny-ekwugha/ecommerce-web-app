@@ -67,3 +67,9 @@ module "budget" {
   name   = local.name
   email  = var.budget_email
 }
+
+module "security" {
+  source = "../../modules/security"
+  name   = local.name
+  vpc_id = module.network.vpc_id
+}
