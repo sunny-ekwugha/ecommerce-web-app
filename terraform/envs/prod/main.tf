@@ -62,3 +62,8 @@ module "iam" {
   sns_topic_arn      = module.messaging.topic_arn
 }
 
+module "budget" {
+  source = "../../modules/budget"
+  name   = local.name
+  email  = var.budget_email
+}

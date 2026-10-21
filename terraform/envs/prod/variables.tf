@@ -24,3 +24,9 @@ variable "allow_destroy" {
   default     = false
   description = "Practice mode: turns off deletion protection and lets destroy empty buckets and registries."
 }
+
+variable "budget_email" {
+  type        = string
+  description = "Email for AWS Budgets alerts (set in terraform.tfvars, never committed)"
+}
+
