@@ -30,3 +30,16 @@ variable "budget_email" {
   description = "Email for AWS Budgets alerts (set in terraform.tfvars, never committed)"
 }
 
+variable "db_instance_class" {
+  type        = string
+  default     = "db.t4g.micro"
+  description = "RDS instance class (override in terraform.tfvars for cheap practice runs)"
+}
+
+variable "db_multi_az" {
+  type        = bool
+  default     = false
+  description = "Run a standby database in a second zone (override to false for practice runs)"
+}
+
+

@@ -73,3 +73,14 @@ module "security" {
   name   = local.name
   vpc_id = module.network.vpc_id
 }
+
+module "database" {
+  source            = "../../modules/database"
+  name              = local.name
+  subnet_ids        = module.network.db_subnet_ids
+  security_group_id = module.security.rds_sg_id
+  kms_key_arn       = module.data.kms_key_arn
+  instance_class    = var.db_instance_class
+  multi_az          = var.db_multi_az
+  allow_destroy     = var.allow_destroy
+}
