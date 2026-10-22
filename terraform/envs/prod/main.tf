@@ -84,3 +84,12 @@ module "database" {
   multi_az          = var.db_multi_az
   allow_destroy     = var.allow_destroy
 }
+
+module "alb" {
+  source            = "../../modules/alb"
+  name              = local.name
+  vpc_id            = module.network.vpc_id
+  subnet_ids        = module.network.ecs_subnet_ids
+  security_group_id = module.security.alb_sg_id
+  allow_destroy     = var.allow_destroy
+}
