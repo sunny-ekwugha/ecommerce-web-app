@@ -42,4 +42,7 @@ variable "db_multi_az" {
   description = "Run a standby database in a second zone (override to false for practice runs)"
 }
 
-
+variable "image_tag" {
+  type        = string
+  description = "Container image tag to deploy (set in terraform.tfvars)"
+}

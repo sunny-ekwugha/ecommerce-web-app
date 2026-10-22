@@ -93,3 +93,20 @@ module "alb" {
   security_group_id = module.security.alb_sg_id
   allow_destroy     = var.allow_destroy
 }
+
+module "ecs" {
+  source              = "../../modules/ecs"
+  name                = local.name
+  env                 = var.env
+  subnet_ids          = module.network.ecs_subnet_ids
+  security_group_id   = module.security.ecs_sg_id
+  execution_role_arn  = module.iam.execution_role_arn
+  task_role_arns      = module.iam.task_role_arns
+  target_group_arns   = module.alb.target_group_arns
+  repository_urls     = module.ecr.repository_urls
+  image_tag           = var.image_tag
+  kms_key_arn         = module.data.kms_key_arn
+  products_table_name = module.data.products_table_name
+  carts_table_name    = module.data.cart_table_name
+
+}
