@@ -28,3 +28,9 @@ output "sns_topic_arn" {
   description = "ARN of the order events SNS topic"
   value       = module.messaging.topic_arn
 }
+
+output "api_endpoint" {
+  description = "Base URL of the HTTP API"
+  value       = module.api.api_endpoint
+}
+

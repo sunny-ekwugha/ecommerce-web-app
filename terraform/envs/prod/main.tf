@@ -110,3 +110,14 @@ module "ecs" {
   carts_table_name    = module.data.cart_table_name
 
 }
+
+module "api" {
+  source            = "../../modules/api"
+  name              = local.name
+  subnet_ids        = module.network.ecs_subnet_ids
+  security_group_id = module.security.vpclink_sg_id
+  listener_arn      = module.alb.listener_arn
+  cognito_issuer    = module.cognito.issuer
+  cognito_client_id = module.cognito.client_id
+  allowed_origin    = "https://${module.frontend.distribution_domain}"
+}
