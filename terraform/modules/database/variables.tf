@@ -45,7 +45,7 @@ variable "allocated_storage" {
 
 variable "backup_retention_days" {
   type    = number
-  default = 14
+  default = 1
 }
 
 variable "log_retention_days" {

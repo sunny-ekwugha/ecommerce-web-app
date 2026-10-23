@@ -29,7 +29,7 @@ resource "aws_db_parameter_group" "this" {
 # Created here so that destroy removes them (RDS would otherwise create them and leave them behind)
 resource "aws_cloudwatch_log_group" "postgresql" {
   name              = "/aws/rds/instance/${var.name}-postgres/postgresql"
-  retention_in_days = var.backup_retention_days
+  retention_in_days = var.log_retention_days
   kms_key_id        = var.kms_key_arn
 }
 
@@ -62,7 +62,7 @@ resource "aws_db_instance" "this" {
   publicly_accessible    = false
   parameter_group_name   = aws_db_parameter_group.this.name
 
-  backup_retention_period    = var.log_retention_days
+  backup_retention_period    = var.backup_retention_days
   backup_window              = "03:00-04:00"
   maintenance_window         = "sun:05:00-sun:06:00"
   auto_minor_version_upgrade = true
