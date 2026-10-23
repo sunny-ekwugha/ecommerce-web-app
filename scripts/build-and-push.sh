@@ -26,7 +26,7 @@ for SVC in "${SERVICES[@]}"; do
     echo "    tag ${TAG} already in ECR, skipping (tags are immutable)"
     continue
   fi
-  docker build --platform linux/amd64 -t "${IMAGE}" "services/${SVC}"
+  docker build --pull --platform linux/amd64 -t "${IMAGE}" "services/${SVC}"
   docker push "${IMAGE}"
 done
 
