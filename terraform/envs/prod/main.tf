@@ -111,6 +111,17 @@ module "ecs" {
 
 }
 
+module "ssm" {
+  source = "../../modules/ssm"
+
+  env           = var.env
+  kms_key_arn   = module.data.kms_key_arn
+  db_host       = module.database.address
+  db_password   = module.database.password
+  alb_dns_name  = module.alb.dns_name
+  sns_topic_arn = module.messaging.topic_arn
+}
+
 module "api" {
   source            = "../../modules/api"
   name              = local.name
