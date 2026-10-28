@@ -74,7 +74,7 @@ resource "aws_ecs_service" "svc" {
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
 
-  health_check_grace_period_seconds  = 60
+  health_check_grace_period_seconds  = 120
   deployment_minimum_healthy_percent = 100
   deployment_maximum_percent         = 200
 
