@@ -25,7 +25,7 @@ done
 
 # 3. Build.
 cd "${APP}"
-if [ -f package-lock.json ]; then npm ci; else npm install; fi
+if [ -n "${SKIP_INSTALL:-}" ]; then echo "SKIP_INSTALL set: reusing node_modules"; elif [ -f package-lock.json ]; then npm ci; else npm install; fi
 npm run build
 [ -f build/index.html ] || { echo "ERROR: build/index.html was not produced." >&2; exit 1; }
 
