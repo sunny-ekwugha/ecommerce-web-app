@@ -21,11 +21,11 @@ resource "aws_db_parameter_group" "this" {
   family = data.aws_rds_engine_version.pg.parameter_group_family
 
   parameter {
-    name  = "rds.force_ssl"
-    value = "1"
+    name         = "rds.force_ssl"
+    value        = "1"
+    apply_method = "pending-reboot"
   }
 }
-
 # Created here so that destroy removes them (RDS would otherwise create them and leave them behind)
 resource "aws_cloudwatch_log_group" "postgresql" {
   name              = "/aws/rds/instance/${var.name}-postgres/postgresql"
