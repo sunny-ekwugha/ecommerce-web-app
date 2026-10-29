@@ -14,7 +14,7 @@ Production-like deployment of the four-service ecommerce app (product, cart, use
 - **Placeholders, never real values.** Account ID, e-mail and the state bucket name are written as `<ACCOUNT_ID>`, `<BUDGET_EMAIL>` and `tfstate-<ACCOUNT_ID>-us-east-1`. The real values live only in two gitignored files: `terraform/envs/prod/backend.hcl` and `terraform/envs/prod/terraform.tfvars`. Resource IDs that Terraform can print (CloudFront domain, user pool ID, table ARNs) are not written down here, because they go stale. Run `terraform output` instead.
 - **Status markers.**
   - ✅ ran, and the output was seen and checked
-  - ◐ ran, but the output was not seen (the person reported success, or only part of the output was shared)
+  - ◐ ran, but the output was not seen
   - 📝 code written and planned, **not applied**
   - ⏳ not started yet
 - **Cost markers.** 💲 creates something that bills while it exists. Prices quoted in these documents are rough figures from memory. Check the AWS pricing pages before relying on them.
